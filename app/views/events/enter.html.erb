@@ -1,0 +1,94 @@
+Entering event
+
+<br>
+Hosting Club: <%= @event.hosting_club %><BR>
+<%= @event.notes %><BR>
+
+
+<%= form_tag do_entry_path do %>
+
+	<HR>
+	<TABLE BORDER=0>
+	
+	<TR><TD COLSPAN=2 class="form_heading">Handler Details</TD></TR>
+	<TR><TD class="form_label_cell">E-mail:</TD> <TD><%= text_field_tag(:handler_email) %></TD></TR>
+	<TR><TD class="form_label_cell">First name:</TD><TD><%= text_field_tag(:handler_first_name) %></TD></TR>
+	<TR><TD class="form_label_cell">Last name:</TD><TD><%= text_field_tag(:handler_last_name) %></TD></TR>
+	<TR><TD>&nbsp;</TD></TR>
+	<TR><TD COLSPAN=2 class="form_heading">Dog Details</TD></TR>
+	<TR><TD class="form_label_cell">Dog name:</TD><TD><%= text_field_tag(:dog_name) %></TD></TR>
+	<TR><TD class="form_label_cell">Titles:</TD><TD><%= text_field_tag(:dog_titles) %></TD></TR>
+	<TR><TD class="form_label_cell">Registration Number:</TD><TD><%= text_field_tag(:dog_registration_number) %></TD></TR>
+	<TR><TD class="form_label_cell">Breed:</TD><TD><%= text_field_tag(:dog_breed) %></TD></TR>
+	<TR><TD class="form_label_cell">Height:</TD><TD><%= select_tag(:dog_height, options_for_select([['-', ''], ['200', '200'], ['300', '300'], ['400', '400'], ['500', '500'], ['600', '600']])) %></TD></TR>
+	<TR><TD>&nbsp;</TD></TR>
+	<TR><TD COLSPAN=2 class="form_heading">Please select classes to enter</TD></TR>
+	<% if @event.isAgility then %>
+	<TR><TD class="form_label_cell">Select Agility Class</TD><TD><%= select_tag(:agility, options_for_select([['-', ''], ['Novice', 'AD'], ['Excellent', 'ADX'], ['Masters', 'ADM']])) %></TD></TR>
+	<% end	%>
+	<% if @event.isAgility then %>
+	<TR><TD class="form_label_cell">Select Jumping Class</TD><TD><%= select_tag(:jumping, options_for_select([['-', ''], ['Novice', 'JD'], ['Excellent', 'JDX'], ['Masters', 'JDM']])) %></TD></TR>
+	<% end	%>
+	<% if @event.isJDO then %>
+	<TR><TD class="form_label_cell">Open Jumping</TD><TD><%= check_box(:open, "JDO") %></TD></TR>
+	<% end %>
+	<% if @event.isADO then %>
+	<TR><TD class="form_label_cell">Open Agility</TD><TD><%= check_box(:open, "ADO") %></TD></TR>
+	<% end %>
+	<% if @event.isSnooker then %>
+	<TR><TD class="form_label_cell">Select Snooker</TD><TD><%= select_tag(:snooker, options_for_select([['-', ''], ['Novice', 'SD'], ['Excellent', 'SDX'], ['Masters', 'SDM']])) %></TD></TR>
+	<% end	%>
+	<% if @event.isGamblers then %>
+	<TR><TD class="form_label_cell">Select Gamblers</TD><TD><%= select_tag(:gamblers, options_for_select([['-', ''], ['Novice', 'GD'], ['Excellent', 'GDX'], ['Masters', 'GDM']])) %></TD></TR>
+	<% end	%>
+	<TR><TD>&nbsp;</TD></TR>
+	<TR><TD COLSPAN=2 style="text-align: center;"><%= submit_tag 'Save' %></TD></TR>
+	</TABLE>
+<% end %>
+
+
+
+<%= form_tag do_entry_path do %>
+
+	<HR>
+	
+	<p class="required">* Required field</p>
+	<div class="fieldSet">
+		<fieldset>
+			<legend>Handler Details</legend>
+			<p><label class="field">E-mail:</label><%= text_field_tag(:handler_email) %></p>
+			<p><label class="field">First name:</label><%= text_field_tag(:handler_first_name) %></p>
+			<p><label class="field">Last name:</label><%= text_field_tag(:handler_last_name) %></p>
+			
+			<legend>Dog Details</legend>
+			<p><label class="field">Name:</label><%= text_field_tag(:dog_name) %></p>
+			<p><label class="field">Titles:</label><%= text_field_tag(:dog_titles) %></p>
+			<p><label class="field">Registration Number:</label><%= text_field_tag(:dog_registration_number) %></p>
+			<p><label class="field">Breed:</label><%= text_field_tag(:dog_breed) %></p>
+			<p><label class="field">Height:</label><%= select_tag(:dog_height, options_for_select([['-', ''], ['200', '200'], ['300', '300'], ['400', '400'], ['500', '500'], ['600', '600']])) %></p>
+			
+			<legend>Please select classes to enter</legend>
+			<% if @event.isAgility then %>
+			<p><label class="field">Agility</label><%= select_tag(:agility, options_for_select([['-', ''], ['Novice', 'AD'], ['Excellent', 'ADX'], ['Masters', 'ADM']])) %></p>
+			<% end	%>
+			<% if @event.isAgility then %>
+			<p><label class="field">Jumping</label><%= select_tag(:jumping, options_for_select([['-', ''], ['Novice', 'JD'], ['Excellent', 'JDX'], ['Masters', 'JDM']])) %></p>
+			<% end	%>
+			<% if @event.isJDO then %>
+			<p><label class="field">Open Jumping</label><%= check_box(:open, "JDO") %></p>
+			<% end %>
+			<% if @event.isADO then %>
+			<p><label class="field">Open Agility</label><%= check_box(:open, "ADO") %></p>
+			<% end %>
+			<% if @event.isSnooker then %>
+			<p><label class="field">Snooker</label><%= select_tag(:snooker, options_for_select([['-', ''], ['Novice', 'SD'], ['Excellent', 'SDX'], ['Masters', 'SDM']])) %></p>
+			<% end	%>
+			<% if @event.isGamblers then %>
+			<p><label class="field">Gamblers</label><%= select_tag(:gamblers, options_for_select([['-', ''], ['Novice', 'GD'], ['Excellent', 'GDX'], ['Masters', 'GDM']])) %></p>
+			<% end	%>
+			<p><%= submit_tag 'Save' %></p>
+
+	
+		</fieldset>
+	</div>
+<% end %>

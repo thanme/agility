@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hosting club:</strong>
+  <%= @event.hosting_club %>
+</p>
+
+<p>
+  <strong>Isagility:</strong>
+  <%= @event.isAgility %>
+</p>
+
+<p>
+  <strong>Isjumping:</strong>
+  <%= @event.isJumping %>
+</p>
+
+<p>
+  <strong>Isado:</strong>
+  <%= @event.isADO %>
+</p>
+
+<p>
+  <strong>Isjdo:</strong>
+  <%= @event.isJDO %>
+</p>
+
+<p>
+  <strong>Issnooker:</strong>
+  <%= @event.isSnooker %>
+</p>
+
+<p>
+  <strong>Isgamblers:</strong>
+  <%= @event.isGamblers %>
+</p>
+
+<p>
+  <strong>Isstratpairs:</strong>
+  <%= @event.isStratPairs %>
+</p>
+
+<p>
+  <strong>Trial datetime:</strong>
+  <%= @event.trial_datetime %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @event.notes %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

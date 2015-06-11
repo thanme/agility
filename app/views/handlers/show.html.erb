@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @handler.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @handler.last_name %>
+</p>
+
+<p>
+  <strong>Reg:</strong>
+  <%= @handler.reg %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @handler.email %>
+</p>
+
+<%= link_to 'Edit', edit_handler_path(@handler) %> |
+<%= link_to 'Back', handlers_path %>

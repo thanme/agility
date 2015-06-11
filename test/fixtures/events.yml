@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hosting_club: MyString
+  isAgility: false
+  isJumping: false
+  isADO: false
+  isJDO: false
+  isSnooker: false
+  isGamblers: false
+  isStratPairs: false
+  trial_datetime: 2015-06-08 08:55:21
+  notes: MyText
+
+two:
+  hosting_club: MyString
+  isAgility: false
+  isJumping: false
+  isADO: false
+  isJDO: false
+  isSnooker: false
+  isGamblers: false
+  isStratPairs: false
+  trial_datetime: 2015-06-08 08:55:21
+  notes: MyText

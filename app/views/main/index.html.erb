@@ -1,0 +1,12 @@
+To start with, this is just my dick around page to get stuff working.<br><br>
+
+
+<% @events.each do |e| %>
+<P><b><%= e.hosting_club %> </b><br>
+<%= e.trial_datetime %><br>
+<%= e.notes %>
+<%= link_to "Enter event", enter_event_path(:event => e) %>
+</p>
+<% end %>
+
+
