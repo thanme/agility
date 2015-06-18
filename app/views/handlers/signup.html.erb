@@ -1,0 +1,45 @@
+<% @page_title = "UserAuth | Signup" -%>
+<div class= "Sign_Form">
+	
+	
+	
+  <h1>Sign Up</h1>
+  
+  
+  <div class="FieldSet">
+  	<fieldset>
+  
+  <%= form_for(:handler, :url => {:controller => 'handlers', :action => 'do_signup'}) do |f| %>
+
+    <p><%= label_tag :email, "Email:" %>
+      <%= f.text_field :email %></p>
+
+	<p><%= label_tag :first_name, "First Name:" %>
+		<%= f.text_field :first_name %></p>
+	
+	<p><%= label_tag :last_name, "Last Name:" %>
+		<%= f.text_field :last_name %></p>
+	
+	<p><%= label_tag :reg, "Dogswest Registration:" %>
+		<%= f.text_field :reg %></p>
+
+
+    <p><%= label_tag :password, "Password:" %> 
+    	<%= f.password_field :password %></p>
+
+    <p><%= label_tag :password_confirmation, "Password Confirmation:" %> 
+    	<%= f.password_field :password_confirmation %></p>
+
+    <%= f.submit :Signup %>
+  <% end %>
+  
+  </fieldset></div>
+
+  <% if @handler.errors.any? %>
+	<ul class="Signup_Errors">
+		<% for message_error in @handler.errors.full_messages %>
+			<li>* <%= message_error %></li>
+	  	<% end %>
+	</ul>
+  <% end %>
+</div>

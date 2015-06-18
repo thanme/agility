@@ -5,7 +5,8 @@ class CreateHandlers < ActiveRecord::Migration
       t.string :last_name
       t.string :reg
       t.string :email
-
+      t.string :encrypted_password 
+      t.string :salt
       t.timestamps
     end
   end

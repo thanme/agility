@@ -5,6 +5,7 @@ class CreateDogs < ActiveRecord::Migration
       t.string :reg
       t.string :titles
       t.string :breed
+      t.string :height
 
       t.timestamps
     end

@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :reg %><br>
-    <%= f.text_field :reg %>
-  </div>
-  <div class="field">
-    <%= f.label :titles %><br>
-    <%= f.text_field :titles %>
-  </div>
-  <div class="field">
-    <%= f.label :breed %><br>
-    <%= f.text_field :breed %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="fieldSet">
+	<fieldset>
+  		<legend>Dog Details</legend>
+		<p><%= label_tag :name, "Name:", class:"field" %>
+		<%= f.text_field :name %></p>
+		<p><%= label_tag :titles, "Titles:", class:"field" %>
+		<%= f.text_field :titles %></p>
+		<p><%= label_tag :reg, "Registration Number:", class:"field" %>
+		<%= f.text_field :reg %></p>
+		<p><%= label_tag :height, "Height", class:"field" %>
+		<%= f.select :height, [200, 300, 400, 500, 600], include_blank: "---",
+			selected: f.object.height ? f.object.height : "" %></p>
+		<p><%= f.submit %></p>
+	</fieldset>
+</div>
+	
+  
+  
+  
 <% end %>

@@ -1,11 +1,18 @@
 To start with, this is just my dick around page to get stuff working.<br><br>
 
+<%= link_to "Handlers", handlers_path %><br />
+<%= link_to "Dogs", dogs_path %><br />
+<%= link_to "Events", events_path %><br>
+<br />
+<%= link_to "Signup", signup_path %>
+
+
 
 <% @events.each do |e| %>
 <P><b><%= e.hosting_club %> </b><br>
 <%= e.trial_datetime %><br>
 <%= e.notes %>
-<%= link_to "Enter event", enter_event_path(:event => e) %>
+<%= link_to "Enter event", new_entry_path(:event => e) %>
 </p>
 <% end %>
 

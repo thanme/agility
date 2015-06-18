@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   resources :handlers
   
-  get 'event/enter' => 'events#enter', :as => :enter_event
-  post 'event/do_entry' => 'events#do_entry', :as => :do_entry
+  resources :entries
+  
+  get 'signup' => 'handlers#signup', :as => :signup
+  post 'do_signup' => 'handlers#do_signup', :as => :do_signup
+  
+  #post 'event/do_entry' => 'events#do_entry', :as => :do_entry
   #map.resources :events :do_entry => :post
   
   root 'main#index'

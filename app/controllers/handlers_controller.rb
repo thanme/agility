@@ -60,6 +60,30 @@ class HandlersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  
+  def signup
+    @handler = Handler.new
+  end
+  
+  
+  def do_signup
+    
+    @handler = Handler.new(handler_params)
+      if @handler.save
+        flash[:notice] = "You Signed up successfully"
+        flash[:color]= "valid"
+      else
+        flash[:notice] = "Form is invalid"
+        flash[:color]= "invalid"
+      end
+      render "signup"
+    
+  end
+  
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,61 @@
+Entering event
+
+<br>
+Hosting Club: <%= @event.hosting_club %><BR>
+<%= @event.notes %><BR>
+
+<p class="required">* Required field</p>
+error_message_for :entry 
+
+
+<%= form_for @entry do |f| %>
+	<div class="fieldSet">
+		<fieldset>
+
+	<legend>Handler Details</legend>
+	<%= f.fields_for @handler do |ff| %>
+		<p><%= label_tag(:email, "E-mail:", class:"field", :required => true) %>
+		<%= ff.text_field :email %></p>
+		<p><%= label_tag :first_name, "First Name:", class:"field" %>
+		<%= ff.text_field :first_name %></p>
+		<p><%= label_tag :last_name, "Last Name:", class:"field" %>
+		<%= ff.text_field :last_name %></p>
+	<% end %>
+	
+	<legend>Dog Details</legend>
+	<%= f.fields_for @dog do |ff| %>
+		<p><%= label_tag :name, "Name:", class:"field" %>
+		<%= ff.text_field :name %></p>
+		<p><%= label_tag :titles, "Titles:", class:"field" %>
+		<%= ff.text_field :titles %></p>
+		<p><%= label_tag :reg, "Registration Number:", class:"field" %>
+		<%= ff.text_field :reg %></p>
+		<p><%= label_tag :height, "Height", class:"field" %>
+		<%= select_tag(:height, options_for_select([['-', ''], ['200', '200'], ['300', '300'], ['400', '400'], ['500', '500'], ['600', '600']])) %></p>
+		
+	<% end %>
+	
+	<legend>Please select classes to enter</legend>
+	<% if @event.isAgility then %>
+		<p><label class="field">Agility</label><%= select_tag(:agility, options_for_select([['-', ''], ['Novice', 'AD'], ['Excellent', 'ADX'], ['Masters', 'ADM']])) %></p>
+	<% end	%>
+	<% if @event.isAgility then %>
+		<p><label class="field">Jumping</label><%= select_tag(:jumping, options_for_select([['-', ''], ['Novice', 'JD'], ['Excellent', 'JDX'], ['Masters', 'JDM']])) %></p>
+	<% end	%>
+	<% if @event.isJDO then %>
+		<p><label class="field">Open Jumping</label><%= check_box(:open, "JDO") %></p>
+	<% end %>
+	<% if @event.isADO then %>
+		<p><label class="field">Open Agility</label><%= check_box(:open, "ADO") %></p>
+	<% end %>
+	<% if @event.isSnooker then %>
+		<p><label class="field">Snooker</label><%= select_tag(:snooker, options_for_select([['-', ''], ['Novice', 'SD'], ['Excellent', 'SDX'], ['Masters', 'SDM']])) %></p>
+	<% end	%>
+	<% if @event.isGamblers then %>
+		<p><label class="field">Gamblers</label><%= select_tag(:gamblers, options_for_select([['-', ''], ['Novice', 'GD'], ['Excellent', 'GDX'], ['Masters', 'GDM']])) %></p>
+	<% end	%>
+	<%= f.submit %>
+	
+		</fieldset>
+	</div>
+<% end %>
