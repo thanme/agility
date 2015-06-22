@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+  get 'sessions/login' => 'sessions#login', :as => :login
+ post 'sessions/login_attempt' => 'sessions#login_attempt'
+
+  get 'sessions/home'
+
+  get 'sessions/profile'
+
+  get 'sessions/setting'
+  
+  
   resources :events
 
   resources :dogs
@@ -14,6 +25,12 @@ Rails.application.routes.draw do
   #map.resources :events :do_entry => :post
   
   root 'main#index'
+  
+  get "login" => "sessions#login"
+  get "logout" => "sessions#logout"
+  get "home" => "sessions#home"
+  get "profile" => "sessions#profile"
+  get "setting" => "sessions#setting"
   
   
   

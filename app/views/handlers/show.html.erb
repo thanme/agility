@@ -20,5 +20,10 @@
   <%= @handler.email %>
 </p>
 
+<p>
+  <strong>Password: </strong>
+  <%= @handler.encrypted_password %>
+</p>
+
 <%= link_to 'Edit', edit_handler_path(@handler) %> |
 <%= link_to 'Back', handlers_path %>

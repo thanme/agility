@@ -7,6 +7,7 @@
       <th>Last name</th>
       <th>Reg</th>
       <th>Email</th>
+      <th>Salt</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= handler.last_name %></td>
         <td><%= handler.reg %></td>
         <td><%= handler.email %></td>
+           <td><%= handler.salt %></td>
         <td><%= link_to 'Show', handler %></td>
         <td><%= link_to 'Edit', edit_handler_path(handler) %></td>
         <td><%= link_to 'Destroy', handler, method: :delete, data: { confirm: 'Are you sure?' } %></td>

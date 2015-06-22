@@ -1,5 +1,6 @@
 class HandlersController < ApplicationController
   before_action :set_handler, only: [:show, :edit, :update, :destroy]
+  before_filter :save_login_state, :only => [:new, :create, :signup, :do_signup]
 
   # GET /handlers
   # GET /handlers.json
@@ -74,11 +75,13 @@ class HandlersController < ApplicationController
       if @handler.save
         flash[:notice] = "You Signed up successfully"
         flash[:color]= "valid"
+        
       else
         flash[:notice] = "Form is invalid"
         flash[:color]= "invalid"
+        render "signup"
       end
-      render "signup"
+      
     
   end
   
@@ -93,6 +96,6 @@ class HandlersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def handler_params
-      params.require(:handler).permit(:first_name, :last_name, :reg, :email)
+      params.require(:handler).permit(:first_name, :last_name, :reg, :email, :password, :password_confirmation, :salt)
     end
 end
